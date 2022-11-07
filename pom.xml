@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.joel</groupId>
-    <artifactId>KrugerUtil</artifactId>
+    <artifactId>kruger-util-v2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>KrugerUtil</name>
-    <description>KrugerUtil</description>
+    <name>kruger-util-v2</name>
+    <description>kruger-util-v2</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>

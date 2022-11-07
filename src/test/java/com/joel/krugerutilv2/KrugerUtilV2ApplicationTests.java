@@ -1,10 +1,10 @@
-package com.joel.krugerutil;
+package com.joel.krugerutilv2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KrugerUtilApplicationTests {
+class KrugerUtilV2ApplicationTests {
 
     @Test
     void contextLoads() {

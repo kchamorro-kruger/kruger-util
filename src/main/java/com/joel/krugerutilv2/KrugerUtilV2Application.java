@@ -1,13 +1,13 @@
-package com.joel.krugerutil;
+package com.joel.krugerutilv2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KrugerUtilApplication {
+public class KrugerUtilV2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(KrugerUtilApplication.class, args);
+        SpringApplication.run(KrugerUtilV2Application.class, args);
     }
 
 }

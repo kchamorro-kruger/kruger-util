@@ -1,4 +1,4 @@
-package com.joel.krugerutil.controller;
+package com.joel.krugerutilv2.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +15,12 @@ public class SecurityInfoController {
     public String getIp() {
         String ipAddress;
         try {
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-                    .getRequest();
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
             ipAddress = request.getHeader("x-original-forwarded-for");
+            System.out.println("OP1 IP: " + (ipAddress == null ? "NULL" : ipAddress));
             if (ipAddress == null) {
                 ipAddress = request.getRemoteAddr();
+                System.out.println("OP2 IP: " + (ipAddress == null ? "NULL" : ipAddress));
             }else{
                 ipAddress=ipAddress.split(",")[0];
             }
