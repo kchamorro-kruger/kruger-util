@@ -1,5 +1,6 @@
 package com.joel.krugerutilv2.controller;
 
+import com.joel.krugerutilv2.dto.IpAddress;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -12,22 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 public class SecurityInfoController {
 
     @RequestMapping("/get-ip")
-    public String getIp() {
-        String ipAddress;
+    public IpAddress getIp() {
+
+        IpAddress ipAddress = new IpAddress();
         try {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-            ipAddress = request.getHeader("x-original-forwarded-for");
-            System.out.println("OP1 IP: " + (ipAddress == null ? "NULL" : ipAddress));
-            if (ipAddress == null) {
-                ipAddress = request.getRemoteAddr();
-                System.out.println("OP2 IP: " + (ipAddress == null ? "NULL" : ipAddress));
+            ipAddress.setIp(request.getHeader("x-original-forwarded-for"));
+            System.out.println("OP1 IP: " + (ipAddress.getIp() == null ? "NULL" : ipAddress));
+            if (ipAddress.getIp() == null) {
+                ipAddress.setIp(request.getRemoteAddr());
+                System.out.println("OP2 IP: " + (ipAddress.getIp() == null ? "NULL" : ipAddress));
             }else{
-                ipAddress=ipAddress.split(",")[0];
+                ipAddress.setIp(ipAddress.getIp().split(",")[0]);
             }
         }catch (Exception e){
-            ipAddress = "ERROR";
+            ipAddress.setIp("ERROR");
         }
 
-        return ipAddress != null ? ipAddress : "NONE";
+        return ipAddress;
     }
 }
